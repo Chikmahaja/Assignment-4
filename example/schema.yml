@@ -1,0 +1,40 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+
+  - name: payment_types
+    columns:
+      - name: payment_type
+        tests:
+          - not_null
+
+  - name: most_pickup_comunity_area
+    columns:
+      - name: pickup_community_area
+        tests:
+          - accepted_values:
+               values: [8]
+               quote: false
+
+  - name: up_avg
+    columns:
+      - name: trip_total
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: '> 28.10'

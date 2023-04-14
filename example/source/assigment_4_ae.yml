@@ -1,0 +1,6 @@
+version: 2
+
+sources:
+  - name: assigment_4_ae
+    tables:
+      - name: taxi_trip
